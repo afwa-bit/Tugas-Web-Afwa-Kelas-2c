@@ -3,27 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas DOM 2</title>
+    <title>Belajar DOM</title>
 </head>
 <body>
-    <h1 id="judul" onclick="ubahWarna()">judul website</h1>
+    <h1 id="judul">Belajar DOM Manipulator</h1>
+ 
+    <p>paragraf 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae aspernatur sapiente nulla maiores possimus. Quibusdam quod tenetur dolorem, quas natus harum commodi fuga distinctio reiciendis provident dolore illum saepe veniam!</p>
+ 
+    <p>paragraf 2 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur architecto natus nisi error ducimus ea voluptates tempore, labore deserunt, necessitatibus illum, aliquid voluptatum nemo obcaecati ratione reiciendis molestiae alias cupiditate.</p>
+ 
+    <h3 class="daftar">Daftar</h3>
+    <ul>
+        <li>Argentina</li>
+        <li>America</li>
+        <li>India</li>
+        <li>Indonesia</li>
+        <li>Belanda</li>
+    </ul>
+
+    <script>
     
-    <p id="isi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+        let judul=document.getElementById('judul');
+        //merubah warna tulisan
+        judul.style.color="#darkred";
 
-    <script type="text/javascript">
-        //ambil elemen yang mau di manipulasi
-        let judul = document.getElementById('judul');
-        let isi = document.getElementById('isi');
+        let p=document.getElementsByTagName('p');
+        // untuk paragraf pertama
+        p[0].style.backgroundColor="grey";
+        // untuk paragraf kedua
+        p[1].style.backgroundColor="darkgray";
 
-        //event untuk mengubah warna
-        function ubahWarna() {
-            judul.style.color = 'red';
-        }   
+        let list=document.querySelector("ul");
+        //menambah list baru
+        list.innerHTML+="<li>Daftar Baru</li>"; 
+    
+    </script>
 
-        //dom event
-        judul.addEventListener('click', function() {
-            this.style.backgroundColor = 'black';
-        });
-        </script>
 </body>
 </html>
