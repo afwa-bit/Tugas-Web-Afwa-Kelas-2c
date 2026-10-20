@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 9 Javascript</title>
+</head>
+<body>
+    <h1>Tugas 9 Javascript</h1>
+
+    <script type="text/javascript">
+        //membuat blueprint objek/class
+        function kendaraan(jenis,roda, warna) {
+            //constructor
+            this.jenis = jenis;
+            this.roda = roda;
+            this.warna = warna;
+
+            //method atau function
+            this.maju = function() {
+                document.write("kendaraan jenis "+this.jenis+" bergerak maju <br>");
+            }
+
+            this.mundur = function() {
+                document.write("kendaraan jenis "+this.jenis+" bergerak mundur <br>");
+            }
+
+            this.mundur = function() {
+                document.write("kendaraan jenis "+this.jenis+" bergerak mundur <br>");
+            }
+
+            this.belok = function(arah) {
+                document.write("kendaraan jenis "+this.jenis+" bergerak belok ke "+arah+" <br>");
+            }
+
+            this.berhenti = function() {
+                document.write("kendaraan jenis "+this.jenis+" bergerak berhenti <br>");
+            
+        }
+        
+    }
+
+    //membuat instance
+
+    let sedan = new kendaraan("sedan", 4, "merah");
+
+    let sepeda_motor = new kendaraan("sepeda motor", 2, "hitam");
+
+    //trigger dan tuliskan ke browser
+    document.write("<h2> kendaraan jenis "+ sedan.jenis+"</h2>");
+    document.write("<h2> kendaraan nya rodanya "+ sedan.roda+"</h2>");
+    document.write("<h2> kendaraan nya warnanya "+ sedan.warna+"</h2>");
+
+    //fungsi atau sifatnya
+    sepeda_motor.maju();
+    sepeda_motor.mundur();
+    sepeda_motor.belok("kanan");
+    sedan.belok("kiri");
+
+
+    </script>
+
+</body>
+</html>

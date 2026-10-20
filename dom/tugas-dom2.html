@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas DOM 2</title>
+</head>
+<body>
+    <h1 id="judul" onclick="ubahWarna()">judul website</h1>
+    
+    <p id="isi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+
+    <script type="text/javascript">
+        //ambil elemen yang mau di manipulasi
+        let judul = document.getElementById('judul');
+        let isi = document.getElementById('isi');
+
+        //event untuk mengubah warna
+        function ubahWarna() {
+            judul.style.color = 'red';
+        }   
+
+        //dom event
+        judul.addEventListener('click', function() {
+            this.style.backgroundColor = 'black';
+        });
+        </script>
+</body>
+</html>

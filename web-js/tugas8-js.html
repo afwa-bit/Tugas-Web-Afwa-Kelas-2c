@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas 8 Javascript</title>
+</head>
+<body>
+    <h1>Tugas 8 Javascript</h1>
+
+    <script type="text/javascript">
+        
+        // 1. Fungsi tanpa parameter (fungsi salam)
+        function salam() {
+            document.write('<h2>Assalamualaikum</h2><br>');
+        }
+
+        // Memanggil fungsi salam
+        salam();
+
+        // 2. Fungsi dengan parameter dan pengembalian nilai (return)
+        function tambah(a, b) {
+            var c = a + b;
+            return c; // Mengembalikan nilai hasil penjumlahan ke pemanggil fungsi
+        }
+
+        // Memanggil fungsi tambah dengan nilai parameter 8 dan 10
+        var penjumlahan = tambah(8, 10);
+        
+        // Menampilkan hasil penjumlahan ke halaman web
+        document.write('Hasil dari penjumlahan 8 dan 10 adalah ' + penjumlahan);
+
+    </script>
+
+</body>
+</html>
