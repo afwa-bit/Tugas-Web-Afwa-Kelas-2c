@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas 10 Javascript</title>
+</head>
+<body>
+    <h1>Tugas 10 Javascript</h1>
+
+    <script type="text/javascript">
+        // 1. Membuat constructor function untuk objek kendaraan
+        function kendaraan(jenis, roda, warna) {
+            this.jenis = jenis;
+            this.roda = roda;
+            this.warna = warna;
+
+            // Method (fungsi di dalam objek)
+            this.Maju = function() {
+                document.write("Kendaraan Jenis " + this.jenis + " Sedang Bergerak Maju" + "<br>");
+            }
+
+            this.Mundur = function() {
+                document.write("Kendaraan Jenis " + this.jenis + " Sedang Bergerak Mundur" + "<br>");
+            }
+
+            this.Belok = function(arah) {
+                document.write("Kendaraan Jenis " + this.jenis + " Sedang Bergerak Ke " + arah + "<br>");
+            }
+
+            this.Berhenti = function() {
+                document.write("Kendaraan Jenis " + this.jenis + " Sedang Berhenti" + "<br>");
+            }
+        }
+
+        // 2. Membuat instance objek dari constructor
+        var Sedan = new kendaraan("Sedan", 4, "Hitam");
+        var SepedaMotor = new kendaraan("Motor", 2, "Biru");
+
+        // 3. Menuliskan hasil properti ke browser menggunakan dot notation (.)
+        document.write("<h2>Kendaraan Jenis " + SepedaMotor.jenis + "</h2>");
+        document.write("<h3>Kendaraan Warna " + SepedaMotor.warna + "</h3>");
+        document.write("<h3>Kendaraan Beroda " + SepedaMotor.roda + "</h3>");
+        document.write("<hr>");
+
+        // 4. Memanggil method pada objek
+        SepedaMotor.Belok("kanan");
+        Sedan.Maju();
+        SepedaMotor.Mundur();
+        Sedan.Berhenti();
+    </script>
+
+</body>
+</html>
