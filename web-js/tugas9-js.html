@@ -1,64 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas 9 Javascript</title>
+    <title>Penerapan Fungsi - Aplikasi Pendataan Barang</title>
 </head>
 <body>
-    <h1>Tugas 9 Javascript</h1>
-
+    <h2>Aplikasi Pendataan Barang</h2>
+ 
+    <fieldset>
+        <label>Masukan Nama Barang</label>
+        <input type="text" id="nama">
+        <button onclick="AddData();">Simpan</button> 
+    </fieldset>
+ 
+    <ul id="list-barang">
+         
+    </ul>
+ 
     <script type="text/javascript">
-        //membuat blueprint objek/class
-        function kendaraan(jenis,roda, warna) {
-            //constructor
-            this.jenis = jenis;
-            this.roda = roda;
-            this.warna = warna;
-
-            //method atau function
-            this.maju = function() {
-                document.write("kendaraan jenis "+this.jenis+" bergerak maju <br>");
-            }
-
-            this.mundur = function() {
-                document.write("kendaraan jenis "+this.jenis+" bergerak mundur <br>");
-            }
-
-            this.mundur = function() {
-                document.write("kendaraan jenis "+this.jenis+" bergerak mundur <br>");
-            }
-
-            this.belok = function(arah) {
-                document.write("kendaraan jenis "+this.jenis+" bergerak belok ke "+arah+" <br>");
-            }
-
-            this.berhenti = function() {
-                document.write("kendaraan jenis "+this.jenis+" bergerak berhenti <br>");
-            
+        // 1. Array pusat penyimpanan data
+        var barang = ['Laptop Mac', 'Iphone 18 Pro Max', 'Samsung Galaxy s23 Ultra', 'Xiaomi 13 Pro', 'Oppo Find X6 Pro'];
+         
+        // 2. Fungsi menampilkan data ke elemen HTML
+        function ShowData() {
+            var listBarang = document.getElementById('list-barang');
+         
+            // Mengosongkan isi list agar tidak terjadi duplikasi saat dirender ulang
+            listBarang.innerHTML = '';
+         
+            // Melakukan perulangan untuk membaca setiap isi array
+            for (var i = 0; i < barang.length; i++) {
+                var linkHapus = '<a href="#" onclick="DelData(' + i + ')">Hapus</a>';
+                listBarang.innerHTML += '<li>' + barang[i] + ' ' + linkHapus + '</li>';
+            }   
         }
-        
-    }
+         
+        // 3. Fungsi menambahkan data baru ke dalam array
+        function AddData() {
+            var input = document.getElementById('nama');
+            
+            // Validasi sederhana agar tidak menginput data kosong
+            if (input.value.trim() === '') {
+                alert('Nama barang tidak boleh kosong!');
+                return;
+            }
 
-    //membuat instance
-
-    let sedan = new kendaraan("sedan", 4, "merah");
-
-    let sepeda_motor = new kendaraan("sepeda motor", 2, "hitam");
-
-    //trigger dan tuliskan ke browser
-    document.write("<h2> kendaraan jenis "+ sedan.jenis+"</h2>");
-    document.write("<h2> kendaraan nya rodanya "+ sedan.roda+"</h2>");
-    document.write("<h2> kendaraan nya warnanya "+ sedan.warna+"</h2>");
-
-    //fungsi atau sifatnya
-    sepeda_motor.maju();
-    sepeda_motor.mundur();
-    sepeda_motor.belok("kanan");
-    sedan.belok("kiri");
-
-
+            // Memasukkan nilai input ke array menggunakan method push()
+            barang.push(input.value);
+            
+            // Memperbarui tampilan list di web
+            ShowData();
+            
+            // Mengosongkan kembali kolom input setelah data disimpan
+            input.value = '';
+        }
+         
+        // 4. Fungsi menghapus data dari array berdasarkan indeks (id)
+        function DelData(id) {
+            // Menghapus 1 elemen dari array pada indeks ke-id
+            barang.splice(id, 1);
+            
+            // Memperbarui tampilan list di web
+            ShowData();
+        }
+         
+        // Menjalankan fungsi tampil data secara otomatis saat halaman pertama kali dimuat
+        ShowData();
     </script>
-
 </body>
 </html>
